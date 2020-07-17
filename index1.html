@@ -18,6 +18,7 @@
 </head>
 
 <body data-spy="scroll" data-target=".navbar" class="has-loading-screen">
+
     <div class="ts-page-wrapper" id="page-top">
 
         <header id="ts-hero" class="ts-full-screen ts-separate-bg-element" data-mask-bottom-wn-color="#fff"
@@ -44,7 +45,8 @@
                             <a class="nav-item nav-link ts-scroll" href="#agradecimiento">Agredecimiento</a>
                             <!-- <a class="nav-item nav-link ts-scroll" href="#our-team">Team</a> -->
                             <!-- <a class="nav-item nav-link ts-scroll" href="#form-contact">Contact</a> -->
-                            <a class="ts-scroll btn btn-primary btn-sm m-1 px-3 ts-width__auto" href="#donate">Quiero Donar</a>
+                            <a class="ts-scroll btn btn-primary btn-sm m-1 px-3 ts-width__auto" href="#donate">Quiero
+                                Donar</a>
                         </div>
                         <!--end navbar-nav-->
                     </div>
@@ -206,8 +208,7 @@
                             <figure data-animate="ts-fadeInUp">
                                 <figure class="icon mb-5 p-2">
                                     <i class="fa fa-paypal fa-5x"></i>
-                                    <div class="ts-svg" data-animate="ts-zoomInShort"
-                                        data-bg-image="assets/svg/organic-shape-01.svg"></div>
+                                    <div class="ts-svg" data-animate="ts-zoomInShort"></div>
                                 </figure>
                                 <h4>Paypal</h4>
                                 <a href="https://PayPal.Me/yadlajolehVicPolicar" target="_blank"><button
@@ -233,8 +234,7 @@
                             <figure data-animate="ts-fadeInUp" data-delay="0.2s">
                                 <figure class="icon mb-5 p-2">
                                     <i class="fa fa-exchange fa-5x"></i>
-                                    <div class="ts-svg" data-animate="ts-zoomInShort"
-                                        data-bg-image="assets/svg/organic-shape-03.svg"></div>
+                                    <div class="ts-svg" data-animate="ts-zoomInShort"></div>
                                 </figure>
                                 <h4>Transferencia Bancaria</h4>
                                 <button data-toggle="modal" data-target="#exampleModal" class="btn btn-info">Click
@@ -256,12 +256,34 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        Bancomer YAD LA JOLEH, A.C. <button class="btn btn-ouline-default"
-                                            onclick="copyNombreCuenta"><i class="fa fa-clipboard"></i> </button> <br>
-                                        <br>
-                                        Cta. # 0115435900 <br> <br>
-                                        Clabe Interbancaria: 012180001154359006 <br> <br>
-                                        No. Tarjeta: 4555 1130 0715 3200 <br> <br>
+                                        <div class="container-fluid text-left">
+                                            <div class="row">
+
+                                                <div class="col-12">Banco</div>
+                                                <div class="col-12 mb-3"><b>BBVA</b></div>
+
+                                                <div class="col-12">Nombre de Titular</div>
+                                                <div class="col-12 mb-3"><b>YAD LA JOLEH, A.C.</b>
+                                                    <span class="pull-right" style="color: #2a4d69; cursor: pointer;" id="nombreCuenta" data-clipboard-text="YAD LA JOLEH, A.C."><b>Copiar</b></span>
+                                                </div>
+
+                                                <div class="col-12">Cuenta</div>
+                                                <div class="col-12 mb-3"><b># 0115435900</b>
+                                                    <span class="pull-right" style="color: #2a4d69; cursor: pointer;" id="numeroCuenta" data-clipboard-text="0115435900"><b>Copiar</b></span>
+                                                </div>
+
+                                                <div class="col-12">Clabe Interbancaria</div>
+                                                <div class="col-12 mb-3"><b>012180001154359006</b>
+                                                    <span class="pull-right" style="color: #2a4d69; cursor: pointer;" id="clabe" data-clipboard-text="012180001154359006"><b>Copiar</b></span>
+                                                </div>
+
+                                                <div class="col-12">No. Tarjeta</div>
+                                                <div class="col-12 mb-3"><b># 4555 1130 0715 3200</b>
+                                                    <span class="pull-right" style="color: #2a4d69; cursor: pointer;" id="tarjeta" data-clipboard-text="4555113007153200"><b>Copiar</b></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" data-dismiss="modal" class="btn btn-primary">OK</button>
@@ -276,7 +298,7 @@
                 <!--end container-->
             </section>
 
-            
+
 
         </main>
 
@@ -284,8 +306,7 @@
 
             <!--end map-->
             <section id="contact" class="ts-block ts-background-is-dark ts-separate-bg-element"
-                data-bg-image="assets/img/bg-desk.jpg" data-bg-image-opacity=".1" data-bg-color="#1f1f1f"
-                data-mask-bottom-wn-color="#000">
+                data-bg-image-opacity=".1" data-bg-color="#1f1f1f" data-mask-bottom-wn-color="#000">
                 <div class="container">
                     <h3 class="text-center">Contact Us</h3>
                     <div class="d-flex justify-content-center">
@@ -329,14 +350,28 @@
         gtag('config', 'UA-172663150-2');
     </script>
 
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+
     <script>
-        function copiarNombreCuenta() {
-            var $temp = $("<input type='hidden'>");
-            $("body").append($temp);
-            $temp.val('YAD LA JOLEH, A.C.').select();
-            document.execCommand("copy");
-            $temp.remove();
-        }
+        var text1 = document.getElementById('nombreCuenta');
+        var text2 = document.getElementById('numeroCuenta');
+        var text3 = document.getElementById('clabe');
+        var text4 = document.getElementById('tarjeta');
+
+        var clipboard = new ClipboardJS(text1);
+        var clipboard2 = new ClipboardJS(text2);
+        var clipboard3 = new ClipboardJS(text3);
+        var clipboard4 = new ClipboardJS(text4);
+
+        clipboard.on('success', function (e) {
+            console.log(e);
+        });
+
+        clipboard.on('error', function (e) {
+            console.log(e);
+        });
     </script>
 
 </body>
